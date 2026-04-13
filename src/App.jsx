@@ -7,7 +7,7 @@ import Layout from './Dashboard/Layout';
 import CoursManagement from './Dashboard/CoursManagement';
 import Event from './Dashboard/event';
 import PreInscriptions from './Dashboard/PreInscriptions';
-import Dashboard from './Dashboard/dashboard';
+import Dashboard from './Dashboard/Dashboard';
 import Login from './pages/Login';
 import About from '../src/pages/aboute';
 
