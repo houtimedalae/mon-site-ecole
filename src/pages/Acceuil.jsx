@@ -14,7 +14,7 @@ export default function Acceuil() {
   // 📥 GET EVENTS
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/events")
+      .get("https://backendwnr2-1.onrender.com/api/events")
       .then((res) => setEvents(res.data))
       .catch((err) => console.log(err));
   }, []);
