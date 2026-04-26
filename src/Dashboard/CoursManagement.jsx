@@ -20,7 +20,7 @@ export default function CoursManagement() {
   // Charger courses et categories
   const fetchCourses = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/courses");
+      const res = await axios.get("https://backendwnr2-1.onrender.com/api/courses");
       setCourses(res.data);
     } catch (err) {
       console.error(err);
@@ -28,7 +28,7 @@ export default function CoursManagement() {
   };
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/categories");
+      const res = await axios.get("https://backendwnr2-1.onrender.com/api/categories");
       setCategories(res.data);
     } catch (err) {
       console.error(err);
@@ -45,10 +45,10 @@ export default function CoursManagement() {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/courses/${editingId}`, form);
+        await axios.put(`https://backendwnr2-1.onrender.com/api/courses/${editingId}`, form);
         setMessage("✅ Cours modifié avec succès !");
       } else {
-        await axios.post("http://localhost:5000/api/courses", form);
+        await axios.post("https://backendwnr2-1.onrender.com/api/courses", form);
         setMessage("✅ Cours ajouté avec succès !");
       }
       setForm({ title: "", description: "", price: "", hours: "", category: "" });
@@ -64,7 +64,7 @@ export default function CoursManagement() {
   const handleDelete = async (id) => {
     if (!window.confirm("Supprimer ce cours ?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/courses/${id}`);
+      await axios.delete(`https://backendwnr2-1.onrender.com/api/courses/${id}`);
       setMessage("✅ Cours supprimé !");
       fetchCourses();
     } catch (err) {
@@ -89,7 +89,7 @@ export default function CoursManagement() {
   const handleAddCategory = async () => {
     if (!catName) return;
     try {
-      await axios.post("http://localhost:5000/api/categories", { name: catName });
+      await axios.post("https://backendwnr2-1.onrender.com/api/categories", { name: catName });
       setCatName("");
       fetchCategories();
     } catch (err) {
@@ -101,7 +101,7 @@ export default function CoursManagement() {
   const handleDeleteCategory = async (id) => {
     if (!window.confirm("Supprimer cette catégorie ?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/categories/${id}`);
+      await axios.delete(`https://backendwnr2-1.onrender.com/api/categories/${id}`);
       fetchCategories();
     } catch (err) {
       console.error(err);
