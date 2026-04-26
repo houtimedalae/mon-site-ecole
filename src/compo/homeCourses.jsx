@@ -10,7 +10,7 @@ export default function HomeCourses() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/courses");
+        const res = await axios.get("https://backendwnr2-1.onrender.com/api/courses");
         setCourses(res.data.slice(0, 5));
       } catch (err) {
         console.error("Erreur chargement cours", err);
