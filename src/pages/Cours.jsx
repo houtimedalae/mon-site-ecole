@@ -18,8 +18,8 @@ const Courses = () => {
     const fetchData = async () => {
       try {
         const [coursesRes, categoriesRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/courses"),
-          axios.get("http://localhost:5000/api/categories"),
+          axios.get("https://backendwnr2-1.onrender.com/api/courses"),
+          axios.get("https://backendwnr2-1.onrender.com/api/categories"),
         ]);
         setCourses(coursesRes.data);
         setCategories(["Toutes", ...categoriesRes.data.map((c) => c.name)]);
@@ -45,7 +45,7 @@ const Courses = () => {
     if (!selectedCourse) return;
 
     try {
-      await axios.post("http://localhost:5000/api/preinscriptions", {
+      await axios.post("https://backendwnr2-1.onrender.com/api/preinscriptions", {
         studentName: form.name,
         phone: form.phone,
         email: form.email,
