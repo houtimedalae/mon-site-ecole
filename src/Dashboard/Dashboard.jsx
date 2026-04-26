@@ -10,7 +10,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     // Appel API pour récupérer les stats
-    fetch("http://localhost:5000/api/dashboard-stats")
+    fetch("https://backendwnr2-1.onrender.com/api/dashboard-stats")
       .then((res) => res.json())
       .then((data) => {
         setStats({
