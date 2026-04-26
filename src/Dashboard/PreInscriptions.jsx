@@ -11,8 +11,8 @@ export default function PreInscriptions() {
     const fetchData = async () => {
       try {
         const [preRes, coursesRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/preinscriptions"),
-          axios.get("http://localhost:5000/api/courses"),
+          axios.get("https://backendwnr2-1.onrender.com/api/preinscriptions"),
+          axios.get("https://backendwnr2-1.onrender.com/api/courses"),
         ]);
         setPreinscriptions(preRes.data);
         setCourses(coursesRes.data);
@@ -32,7 +32,7 @@ export default function PreInscriptions() {
   // Valider préinscription
   const handleValidate = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/preinscriptions/${id}`, {
+      await axios.put(`https://backendwnr2-1.onrender.com/api/preinscriptions/${id}`, {
         validated: true, // on marque comme validé
       });
       setPreinscriptions((prev) =>
@@ -46,7 +46,7 @@ export default function PreInscriptions() {
   // Supprimer préinscription
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/preinscriptions/${id}`);
+      await axios.delete(`https://backendwnr2-1.onrender.com/api/preinscriptions/${id}`);
       setPreinscriptions((prev) => prev.filter((p) => p.id !== id));
     } catch (err) {
       console.error(err);
